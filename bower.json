@@ -1,0 +1,17 @@
+{
+  "name": "taco-bell-rater",
+  "version": "0.0.0",
+  "authors": [
+    "Luke Lancaster <luketlancaster@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
