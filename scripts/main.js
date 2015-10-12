@@ -4,14 +4,13 @@ var lat;
 var lon;
 
 function initMap() {
-  var pyrmont = new google.maps.LatLng(36.132,-86.756);
+  var pyrmont = new google.maps.LatLng(39.132,-83.756);
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
     zoom: 10
   });
 
   infowindow = new google.maps.InfoWindow();
-
   var request = {
     location: pyrmont,
     radius: '100',
@@ -20,6 +19,19 @@ function initMap() {
 
   service = new google.maps.places.PlacesService(map);
   service.textSearch(request, callback);
+
+}
+
+function findTheBell(pos) {
+  var request = {
+    location: pos,
+    radius: '100',
+    query: 'taco bell'
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.textSearch(request, callback);
+
 }
 
 function callback(results, status) {
@@ -50,15 +62,20 @@ var options = {
 };
 
 var success = function(pos) {
-  lat = pos.coords.latitude;
-  lon = pos.coords.longitude;
-  console.log(lat + ", " + lon);
+  var pos = {
+    lat: pos.coords.latitude,
+    lng: pos.coords.longitude
+  }
+  map.setCenter(pos);
+  findTheBell(pos);
 };
 
 var error = function(err) {
   console.warn("ERROR(" + err.code + "): " + err.message);
 };
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error, options);
+}
 
 
