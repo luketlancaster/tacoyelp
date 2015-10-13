@@ -83,3 +83,16 @@ if (navigator.geolocation) {
 }
 
 
+function getJSON(url, cb) {
+  var data = new XMLHttpRequest();
+  data.open('GET', url);
+
+  data.onload = function () {
+    if (this.status >= 200 && this.status < 400) {
+      cb(JSON.parse(this.response));
+    }
+  };
+
+  data.send();
+}
+

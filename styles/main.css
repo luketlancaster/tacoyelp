@@ -9,3 +9,7 @@ body {
 #map {
   height: 800px;
 }
+
+.content {
+  background-image: url(http://rack.2.mshcdn.com/media/ZgkyMDEzLzA1LzAyL2Q4L1RhY29CZWxsLmY0ZmU0LnBuZwpwCXRodW1iCTEyMDB4NjI3IwplCWpwZw/f18ece61/fd7/Taco-Bell.jpg);
+}
