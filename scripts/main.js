@@ -47,11 +47,15 @@ function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: place.geometry.location,
+    icon: 'img/Taco_Pin.PNG'
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    var contentForWindow = "<div class='content'>" +
+    "<h1><a href=/#/" + place.place_id  + ">" + place.name + "</a></h1>" +
+    "</div>";
+    infowindow.setContent(contentForWindow);
     infowindow.open(map, this);
   })
 }
