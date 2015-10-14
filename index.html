@@ -3,14 +3,20 @@
 <head>
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body ng-app="TacoYelp">
 
-  <div id="map"></div>
+  <div ng-view></div>
 
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="scripts/main.js"></script>
+  <script src="scripts/main.config.js"></script>
+  <script src="scripts/controllers/Maps.Controller.js"></script>
+  <script src="scripts/controllers/Stores.Controller.js"></script>
 
-  <script async defer
+<!--  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh1AOmSbyrU9Qn5c4OeYGb-VIVrfMEDHY&libraries=places&callback=initMap">
   </script>
+-->
 </body>
 </html>

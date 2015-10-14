@@ -1,10 +1,14 @@
 var map;
 var infowindow;
 var lat;
-var lon;
+var lng;
 
 function initMap() {
-  var pyrmont = new google.maps.LatLng(39.132,-83.756);
+  if (!lat) {
+    var pyrmont = new google.maps.LatLng(39.132,-83.756);
+  } else {
+    var pyrmont = new google.maps.LatLng(lat,lng);
+  }
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
     zoom: 10
@@ -53,7 +57,7 @@ function createMarker(place) {
 
   google.maps.event.addListener(marker, 'click', function() {
     var contentForWindow = "<div class='content'>" +
-    "<h1><a href=/#/" + place.place_id  + ">" + place.name + "</a></h1>" +
+    "<h1><a href=/#/store/" + place.place_id  + ">" + place.name + "</a></h1>" +
     "</div>";
     infowindow.setContent(contentForWindow);
     infowindow.open(map, this);
@@ -72,6 +76,8 @@ var success = function(pos) {
   }
   map.setCenter(pos);
   findTheBell(pos);
+  lat = pos.lat;
+  lng = pos.lng;
 };
 
 var error = function(err) {
