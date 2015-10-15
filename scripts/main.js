@@ -11,13 +11,13 @@ function initMap() {
   }
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
-    zoom: 10
+    zoom: 11
   });
 
   infowindow = new google.maps.InfoWindow();
   var request = {
     location: pyrmont,
-    radius: '100',
+    radius: '500',
     query: 'taco bell'
   };
 
