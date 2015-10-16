@@ -1,3 +1,19 @@
-<h1> Name should be below this: </h1>
-<h2><a href="/#/">{{store.place.name}}</a></h2>
+<h1><a href="/#/">{{store.place.name}}</a></h1>
+<p>{{store.place.formatted_address}}</p>
+<a ng-href="{{store.place.url}}">URL</a>
+<div ng-repeat="hours in store.place.opening_hours.weekday_text">
+  <p>{{hours}}</p>
+</div>
 
+<div class="review-form">
+  <form>
+    <input type="text" placeholder="Title...">
+    <input type="checkbox" name="1" value="1">1
+    <input type="checkbox" name="2" value="2">2
+    <input type="checkbox" name="3" value="3">3
+    <input type="checkbox" name="4" value="4">4
+    <input type="checkbox" name="5" value="5">5
+    <input type="text" placeholder="Name...">
+    <button>Save</button>
+  </form>
+</div>
